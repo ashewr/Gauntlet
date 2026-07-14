@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">Rewards</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+            <a href="dashboard.html" class="ghost-button">Dashboard</a>
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="proof.html" class="ghost-button">Proof</a>
+            <a href="setup.html" class="ghost-button" data-setup-nav>Setup</a>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Redeem your balance</p>
+          <h1 class="setup-title">Use your Stax balance on meaningful rewards.</h1>
+          <p class="hero-text">
+            Complete goals, build your Stax balance, and redeem it for practical or motivational rewards.
+          </p>
+          <p class="hero-text">All listed Stax prices are before tax and shipping.</p>
+        </div>
+      </header>
+
+      <main class="shop-grid">
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Wallet</p>
+              <h2>Your current Stax balance</h2>
+            </div>
+            <span id="shop-balance-pill" class="status-pill live">0 Stax</span>
+          </div>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Best category</span>
+              <strong>Recovery gear</strong>
+            </div>
+            <div>
+              <span class="metric-label">Popular item</span>
+              <strong>Foam roller</strong>
+            </div>
+            <div>
+              <span class="metric-label">Featured upgrade</span>
+              <strong>Massage gun</strong>
+            </div>
+            <div>
+              <span class="metric-label">Premium reward</span>
+              <strong>Fitness tracker</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="shop-cards">
+          <article class="card shop-card">
+            <div class="media-placeholder">
+              <span>Hydration gear</span>
+              <strong>All-day temperature control</strong>
+            </div>
+            <h2>Insulated water bottle</h2>
+            <p class="hero-text">A practical reward that keeps drinks cold throughout training, work, school, and long days.</p>
+            <div class="shop-meta">
+              <strong>15 Stax</strong>
+              <button type="button" class="solid-button shop-buy-button" data-item="Insulated water bottle" data-cost="15">Buy now</button>
+            </div>
+          </article>
+
+          <article class="card shop-card">
+            <img src="assets/foam-roller.svg" alt="Foam roller reward" class="feature-image" />
+            <h2>Foam roller</h2>
+            <p class="hero-text">Recovery equipment designed to support training consistency and post-workout mobility.</p>
+            <div class="shop-meta">
+              <strong>15 Stax</strong>
+              <button type="button" class="solid-button shop-buy-button" data-item="Foam roller" data-cost="15">Buy now</button>
+            </div>
+          </article>
+
+          <article class="card shop-card">
+            <img src="assets/massage-gun.svg" alt="Massage gun reward" class="feature-image" />
+            <h2>Massage gun</h2>
+            <p class="hero-text">A premium recovery tool for users who want a more advanced post-training option.</p>
+            <div class="shop-meta">
+              <strong>25 Stax</strong>
+              <button type="button" class="solid-button shop-buy-button" data-item="Massage gun" data-cost="25">Buy now</button>
+            </div>
+          </article>
+
+          <article class="card shop-card">
+            <div class="media-placeholder">
+              <span>Fitness gear</span>
+              <strong>Performance tracking</strong>
+            </div>
+            <h2>Fitness tracker</h2>
+            <p class="hero-text">A wearable device for tracking movement, training, and day-to-day accountability.</p>
+            <div class="shop-meta">
+              <strong>100 Stax</strong>
+              <button type="button" class="solid-button shop-buy-button" data-item="Fitness tracker" data-cost="100">Buy now</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="card setup-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Purchase status</p>
+              <h2>Recent shop activity</h2>
+            </div>
+            <span class="status-pill alt">Recent activity</span>
+          </div>
+          <div id="shop-activity" class="comment-list">
+            <div class="comment-item">
+              <strong>Last purchase</strong>
+              <p id="shop-last-purchase">Your most recent order will appear here after checkout.</p>
+            </div>
+            <div class="comment-item">
+              <strong>Available Stax</strong>
+              <p id="shop-credit-status" data-balance="0">You currently have 0 Stax available to redeem.</p>
+            </div>
+            <div class="comment-item">
+              <strong>Shipping address</strong>
+              <p id="shop-shipping-address">Enter your shipping address during checkout and it will be saved here for future orders.</p>
+            </div>
+            <div class="comment-item">
+              <strong>Need more Stax?</strong>
+              <p>Complete a goal successfully or add funds in Bank.</p>
+            </div>
+            <div class="comment-item">
+              <strong>Pricing note</strong>
+              <p>Listed Stax prices do not include tax or shipping.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Shop orders are subject to the published refund and support policies.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <div id="checkout-modal" class="checkout-modal hidden" aria-hidden="true">
+      <div class="checkout-backdrop" data-checkout-close></div>
+      <section class="checkout-dialog card" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <div class="panel-heading">
+          <div>
+            <p class="card-label">Checkout</p>
+            <h2 id="checkout-title">Buy this reward</h2>
+          </div>
+        </div>
+        <form id="checkout-form" class="challenge-form">
+          <div class="comment-item">
+            <strong id="checkout-item-name">Item</strong>
+            <p id="checkout-item-price">0 Stax before tax and shipping.</p>
+          </div>
+          <label>
+            Full name
+            <input id="checkout-shipping-name" type="text" placeholder="Full name" />
+          </label>
+          <label>
+            Address line 1
+            <input id="checkout-shipping-address-line-1" type="text" placeholder="Street address" />
+          </label>
+          <label>
+            Address line 2
+            <input id="checkout-shipping-address-line-2" type="text" placeholder="Apartment, suite, etc. (optional)" />
+          </label>
+          <div class="split-fields">
+            <label>
+              City
+              <input id="checkout-shipping-city" type="text" placeholder="City" />
+            </label>
+            <label>
+              State
+              <input id="checkout-shipping-state" type="text" placeholder="State" />
+            </label>
+          </div>
+          <div class="split-fields">
+            <label>
+              ZIP code
+              <input id="checkout-shipping-postal-code" type="text" placeholder="ZIP code" />
+            </label>
+            <label>
+              Country
+              <input id="checkout-shipping-country" type="text" value="US" maxlength="2" placeholder="US" />
+            </label>
+          </div>
+          <p class="supporting-copy">Add your shipping details, then confirm the reward purchase.</p>
+          <div class="hero-actions">
+            <button id="checkout-confirm-button" type="submit" class="solid-button">Confirm</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

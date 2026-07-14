@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Add Goal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">New goal</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+            <a href="dashboard.html" class="ghost-button">Dashboard</a>
+            <a href="setup.html" class="ghost-button" data-setup-nav>Setup</a>
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="proof.html" class="ghost-button">Proof</a>
+            <a href="shop.html" class="ghost-button">Shop</a>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Additional goals</p>
+          <h1 class="setup-title">Create an additional goal.</h1>
+          <p class="hero-text">You can manage up to five goals at once. Save a new one here and it will appear in your dashboard selector automatically.</p>
+        </div>
+      </header>
+
+      <main class="setup-grid">
+        <section class="card setup-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">New goal</p>
+              <h2>Lock in your goal</h2>
+            </div>
+            <span class="status-pill">Challenge</span>
+          </div>
+          <form id="setup-goal-form" class="challenge-form">
+            <label>
+              Your bank Stax
+              <input id="setup-wallet-balance" type="text" value="0 Stax" readonly />
+            </label>
+            <label>
+              Goal
+              <input id="setup-goal-title" type="text" value="Eat healthy every day" />
+            </label>
+            <label>
+              Goal length
+              <select id="setup-goal-length">
+                <option value="1">1 day</option>
+                <option value="7">1 week</option>
+                <option value="14">2 weeks</option>
+                <option value="30">1 month</option>
+                <option value="60">2 months</option>
+                <option value="90">3 months</option>
+                <option value="180" selected>6 months (Recommended)</option>
+                <option value="365">1 year</option>
+              </select>
+            </label>
+            <div class="comment-item length-nudge">
+              <strong>Recommended duration</strong>
+              <p id="setup-length-hint">Six months is recommended because it provides enough time to build a durable habit.</p>
+            </div>
+            <label>
+              Proof schedule
+              <select id="setup-proof-schedule">
+                <option value="daily" selected>Every day</option>
+                <option value="every-other-day">Every other day</option>
+              </select>
+            </label>
+            <div class="comment-item length-nudge">
+              <strong>Check-in rhythm</strong>
+              <p id="setup-proof-schedule-hint">Every day means proof is required once per calendar day.</p>
+            </div>
+            <label>
+              Stake amount
+              <input id="setup-stake" type="text" value="500 Stax" />
+            </label>
+            <div class="comment-item length-nudge">
+              <strong>Projected reward</strong>
+              <p id="setup-reward-hint">A six-month goal with a 500 Stax commitment returns about 540 Stax if completed successfully. Larger commitments produce larger projected rewards.</p>
+            </div>
+            <button id="save-challenge-setup-button" type="button" class="solid-button full-width">Save goal</button>
+            <p id="save-challenge-status" class="supporting-copy">Saved goals are linked to your signed-in account.</p>
+          </form>
+        </section>
+
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Preview</p>
+              <h2>Your lock-in summary</h2>
+            </div>
+            <span class="status-pill alt">Preview</span>
+          </div>
+          <div class="friend-cards">
+            <div class="friend-card">
+              <div>
+                <span class="metric-label">Goal</span>
+                <strong id="setup-preview-goal">Eat healthy every day</strong>
+              </div>
+            </div>
+            <div class="friend-card">
+              <div>
+                <span class="metric-label">Stax lock</span>
+                <strong id="setup-preview-stake">500 Stax</strong>
+              </div>
+            </div>
+            <div class="friend-card">
+              <div>
+                <span class="metric-label">Length</span>
+                <strong id="setup-preview-length">6 months</strong>
+              </div>
+            </div>
+            <div class="friend-card">
+              <div>
+                <span class="metric-label">Proof schedule</span>
+                <strong id="setup-preview-proof-schedule">Every day</strong>
+              </div>
+            </div>
+            <div class="friend-card">
+              <div>
+                <span class="metric-label">Projected reward</span>
+                <strong id="setup-preview-reward">540 Stax</strong>
+              </div>
+            </div>
+          </div>
+          <div class="mini-visual-strip">
+            <article class="comment-item mini-visual-card">
+              <strong>Goal preview</strong>
+              <img src="assets/goal-card.svg" alt="Goal preview card" class="mini-feature-image" />
+            </article>
+            <article class="comment-item mini-visual-card">
+              <strong>Proof preview</strong>
+              <img src="assets/proof-card.svg" alt="Proof preview card" class="mini-feature-image" />
+            </article>
+          </div>
+          <a href="dashboard.html" class="ghost-button full-width">Return to dashboard</a>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Before launching another goal, review the funding, proof, and policy links below if needed.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

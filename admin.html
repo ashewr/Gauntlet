@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">Admin</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <a href="dashboard.html" class="ghost-button">Dashboard</a>
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Admin</p>
+          <h1 class="setup-title">Review accounts stored on this device.</h1>
+          <p class="hero-text">
+            Review account activity, proof submissions, purchases, and locally stored user data in one place.
+          </p>
+        </div>
+      </header>
+
+      <main class="bank-grid">
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Admin overview</p>
+              <h2>Account summary</h2>
+            </div>
+            <span id="admin-account-count" class="status-pill alt">0 accounts</span>
+          </div>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Accounts saved</span>
+              <strong id="admin-account-total">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Current user</span>
+              <strong id="admin-current-user">@player</strong>
+            </div>
+          </div>
+          <div class="admin-toolbar">
+            <label class="admin-search-field">
+              Search users
+              <input id="admin-search-input" type="search" placeholder="Search by username, name, or email" />
+            </label>
+          </div>
+          <p id="admin-empty-state" class="supporting-copy">No saved accounts match this search yet.</p>
+        </section>
+
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Accounts</p>
+              <h2>Customer list</h2>
+            </div>
+            <span class="status-pill live">Searchable</span>
+          </div>
+          <div class="accounts-table-wrap">
+            <table class="accounts-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+                  <th>Completed</th>
+                  <th>Visits</th>
+                  <th>Last visit</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="admin-accounts-body">
+                <tr>
+                  <td colspan="8">No saved accounts yet.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card setup-panel preview-panel admin-details-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Review center</p>
+              <h2>Customer details</h2>
+            </div>
+            <span class="status-pill alt">Full view</span>
+          </div>
+          <p class="supporting-copy">Approve proof, review orders, inspect balances, and search through your customers here.</p>
+          <div id="admin-account-detail-list" class="admin-detail-list">
+            <div class="comment-item">
+              <strong>No account activity yet</strong>
+              <p>Create or use an account to see saved details here.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Admin tool</p>
+              <h2>Reset password</h2>
+            </div>
+            <span class="status-pill alt">Reset</span>
+          </div>
+          <form id="admin-reset-form" class="challenge-form">
+            <label>
+              Username
+              <input id="admin-reset-username" type="text" placeholder="@username" />
+            </label>
+            <label>
+              New password
+              <input id="admin-reset-password" type="password" placeholder="Enter a new password" />
+            </label>
+            <button id="admin-reset-button" type="submit" class="solid-button full-width">Reset password</button>
+            <p id="admin-reset-status" class="supporting-copy">Use this to reset a saved account password without showing the old one.</p>
+          </form>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Administrative review should follow the same published platform and refund policies shown to users.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

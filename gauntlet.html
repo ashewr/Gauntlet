@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Experienced Players</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">Experienced Players</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="proof.html" class="ghost-button">Proof Log</a>
+            <a href="shop.html" class="ghost-button">Shop</a>
+            <a href="setup.html" class="ghost-button" data-setup-nav>Setup</a>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Mission control</p>
+          <h1 class="setup-title">Experienced Players</h1>
+          <p class="hero-text">This page updates from your saved app state, so new users can fill out the app and immediately see their active challenge here.</p>
+        </div>
+      </header>
+
+      <main class="gauntlet-grid">
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Live gauntlet</p>
+              <h2 id="gauntlet-page-title">No gauntlet launched yet</h2>
+            </div>
+            <span id="gauntlet-page-status" class="status-pill alt">Waiting</span>
+          </div>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Category</span>
+              <strong id="gauntlet-page-category">None yet</strong>
+            </div>
+            <div>
+              <span class="metric-label">Locked Stax</span>
+              <strong id="gauntlet-page-stake">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Check-ins</span>
+              <strong id="gauntlet-page-checkins">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Current streak</span>
+              <strong id="gauntlet-page-streak">0 days</strong>
+            </div>
+            <div>
+              <span class="metric-label">Wallet balance</span>
+              <strong id="gauntlet-page-wallet">0 Stax</strong>
+            </div>
+          </div>
+          <div class="comment-item">
+            <strong>Tracking status</strong>
+            <p id="gauntlet-launch-note">Launch a gauntlet from the main page to start tracking progress here.</p>
+          </div>
+          <div class="progress-block">
+            <div class="progress-copy">
+              <span class="metric-label">Completion</span>
+              <strong id="gauntlet-page-progress-text">0 of 30 logged</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div id="gauntlet-page-progress-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <a href="proof.html" class="solid-button full-width">Log more proof</a>
+        </section>
+
+        <section class="card setup-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Latest proof</p>
+              <h2 id="gauntlet-proof-title">No proof uploaded yet</h2>
+            </div>
+            <span class="status-pill">Receipts</span>
+          </div>
+          <div id="gauntlet-proof-media" class="media-placeholder">
+            <span>Proof preview</span>
+            <strong>Upload a screenshot or photo from the main app</strong>
+          </div>
+          <img id="gauntlet-proof-image" class="upload-preview-image hidden" alt="Latest proof" />
+          <div class="comment-list">
+            <div class="comment-item">
+              <strong>Task</strong>
+              <p id="gauntlet-proof-task">Nothing logged yet.</p>
+            </div>
+            <div class="comment-item">
+              <strong>Details</strong>
+              <p id="gauntlet-proof-note">Your uploaded notes and proof source will show here.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

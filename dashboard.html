@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" id="home-brand-link" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p id="home-brand-tag" class="brand-tag">Dashboard</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+            <a href="setup.html" class="ghost-button" data-setup-nav>Setup</a>
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="proof.html" class="ghost-button">Proof</a>
+            <a href="shop.html" class="ghost-button">Shop</a>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Overview</p>
+          <h1 class="setup-title">Your dashboard.</h1>
+          <p class="hero-text">Monitor progress, account balance, and projected rewards in one place.</p>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="dashboard-panel card">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Current goal</p>
+              <h2 id="dashboard-goal">No active goal yet</h2>
+            </div>
+            <span id="gauntlet-page-status" class="status-pill alt">Waiting</span>
+          </div>
+          <label class="inline-select">
+            Switch goal
+            <select id="gauntlet-switcher">
+              <option value="">No goal yet</option>
+            </select>
+          </label>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Category</span>
+              <strong id="dashboard-category">Not set</strong>
+            </div>
+            <div>
+              <span class="metric-label">Deadline</span>
+              <strong id="dashboard-deadline">Not set</strong>
+            </div>
+            <div>
+              <span class="metric-label">Progress</span>
+              <strong id="completion-text">0 of 30 logged</strong>
+            </div>
+            <div>
+              <span class="metric-label">Current streak</span>
+              <strong id="dashboard-streak">0 days</strong>
+            </div>
+          </div>
+          <div class="progress-block">
+            <div class="progress-copy">
+              <span class="metric-label">Completion</span>
+              <strong id="gauntlet-page-progress-text">0 of 30 logged</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div id="progress-bar" class="progress-fill"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-panel card">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Goal portfolio</p>
+              <h2>All goals at a glance</h2>
+            </div>
+            <span class="status-pill alt">Live</span>
+          </div>
+          <div id="dashboard-goals-list" class="dashboard-goals-list">
+            <div class="comment-item">
+              <strong>No goals yet</strong>
+              <p>Create your first goal and it will appear here automatically.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-panel card">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Reward summary</p>
+              <h2>Projected outcome at completion</h2>
+            </div>
+            <span class="status-pill">Stax</span>
+          </div>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Bank balance</span>
+              <strong id="dashboard-bank-balance">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Locked Stax</span>
+              <strong id="gauntlet-page-stake">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Projected total</span>
+              <strong id="dashboard-projected-reward">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Net reward</span>
+              <strong id="dashboard-stax-gain">0 Stax</strong>
+            </div>
+          </div>
+          <div class="comment-item length-nudge">
+            <strong>Completion incentive</strong>
+            <p id="dashboard-reward-copy">Complete every required check-in to unlock your additional Stax reward.</p>
+          </div>
+          <a href="proof.html" class="solid-button full-width">Submit today's proof</a>
+        </section>
+
+        <section class="dashboard-panel card">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Account balance</p>
+              <h2>Your funds at a glance</h2>
+            </div>
+            <span id="dashboard-money-status" class="status-pill alt">Wallet ready</span>
+          </div>
+          <div class="challenge-summary">
+            <div>
+              <span class="metric-label">Current Stax</span>
+              <strong id="dashboard-current-stax">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Gauntlets completed</span>
+              <strong id="dashboard-completed-gauntlets">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Locked in active goal</span>
+              <strong id="dashboard-locked-stax">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Available now</span>
+              <strong id="dashboard-available-stax">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Conversion rate</span>
+              <strong>1 Stax = $2</strong>
+            </div>
+          </div>
+          <div class="comment-item length-nudge">
+            <strong id="dashboard-bank-copy">A larger Stax balance supports bigger commitments and larger projected rewards.</strong>
+            <p>Add funds as needed, then return here to continue managing your goals.</p>
+          </div>
+          <a href="bank.html" class="ghost-button full-width">Go to Bank</a>
+        </section>
+
+        <section class="dashboard-panel card">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Lifetime stats</p>
+              <h2>Your performance metrics</h2>
+            </div>
+            <span class="status-pill alt">All time</span>
+          </div>
+          <div class="challenge-summary dashboard-stats-widget">
+            <div>
+              <span class="metric-label">Goals completed</span>
+              <strong id="dashboard-stats-completed">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Goals started</span>
+              <strong id="dashboard-stats-launched">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Stax earned</span>
+              <strong id="dashboard-stats-earned">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Stax spent</span>
+              <strong id="dashboard-stats-spent">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Stax lost</span>
+              <strong id="dashboard-stats-lost">0 Stax</strong>
+            </div>
+            <div>
+              <span class="metric-label">Shop orders</span>
+              <strong id="dashboard-stats-orders">0</strong>
+            </div>
+          </div>
+          <div class="comment-item length-nudge">
+            <strong id="dashboard-stats-copy">This summary combines your completed goals, reward activity, and account performance over time.</strong>
+            <p>Values update from the account currently available in this app.</p>
+          </div>
+        </section>
+
+        <section class="dashboard-panel card reward-callout-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Reward catalog</p>
+              <h2>Redeem your Stax balance</h2>
+            </div>
+            <span class="status-pill live">Shop</span>
+          </div>
+          <div class="reward-preview-strip dashboard-reward-strip">
+            <div class="reward-pill">Robux</div>
+            <div class="reward-pill">Nintendo</div>
+            <div class="reward-pill">Spotify</div>
+            <div class="reward-pill">DoorDash</div>
+          </div>
+          <img src="assets/bank-stack.svg" alt="Stax and rewards preview" class="feature-image dashboard-reward-image" />
+          <a href="shop.html" class="solid-button full-width">Go to Shop</a>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Need policy details or support while using the app? The links below stay available from your dashboard.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Proof Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">Verification</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <button type="button" class="ghost-button logout-button">Log Out</button>
+            <a href="dashboard.html" class="ghost-button">Dashboard</a>
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="shop.html" class="ghost-button">Shop</a>
+            <a href="setup.html" class="ghost-button" data-setup-nav>Setup</a>
+          </div>
+        </nav>
+
+        <div class="setup-hero card">
+          <p class="eyebrow">Daily verification</p>
+          <h1 class="setup-title">Submit proof and keep your goal on track.</h1>
+          <p class="hero-text">Use this page to upload today's verification and maintain your progress.</p>
+        </div>
+      </header>
+
+      <main class="proof-grid">
+        <section class="card logger-card proof-page-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Daily verification</p>
+              <h2>Log today's progress</h2>
+            </div>
+            <span id="day-pill" class="status-pill live">Day 1</span>
+          </div>
+          <label class="inline-select">
+            Switch goal
+            <select id="gauntlet-switcher">
+              <option value="">No goal yet</option>
+            </select>
+          </label>
+          <form id="log-form" class="log-form">
+            <label>
+              Today's task
+              <input id="task-input" type="text" value="Completed my daily mile before class" />
+            </label>
+            <label>
+              Proof note
+              <textarea id="note-input" rows="3">Ran before class. Uploaded treadmill screenshot.</textarea>
+            </label>
+            <label class="upload-field">
+              <span class="upload-label">Add photo or screenshot</span>
+              <span class="upload-dropzone">
+                <span class="upload-icon">+</span>
+                <span class="upload-copy">
+                  <strong>Select a file to upload</strong>
+                  <span>Use a Strava screenshot, photo, route image, or timing screen</span>
+                </span>
+              </span>
+              <input id="photo-input" type="file" accept="image/*" />
+            </label>
+            <p id="photo-status" class="supporting-copy">No photo added yet.</p>
+            <div id="upload-preview" class="media-placeholder upload-preview">
+              <span>Upload preview</span>
+              <strong>Your photo or screenshot will show here</strong>
+            </div>
+            <img id="upload-preview-image" class="upload-preview-image hidden" alt="Proof preview" />
+            <div class="comment-item proof-helper">
+              <strong>What works</strong>
+              <p id="proof-helper-text">Upload a screenshot or photo that clearly proves today's progress.</p>
+            </div>
+            <div id="late-save-card" class="comment-item length-nudge hidden">
+              <strong>Late submission option</strong>
+              <p id="late-save-status">
+                If you miss one proof day on a goal longer than 30 days, you may recover it by paying a Stax penalty.
+              </p>
+            </div>
+            <button id="proof-submit-button" type="submit" class="solid-button full-width">Submit today's proof</button>
+          </form>
+        </section>
+
+        <section class="card proof-page-panel preview-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Latest log</p>
+              <h2>Today's proof summary</h2>
+            </div>
+            <span id="streak-pill" class="status-pill">18 complete</span>
+          </div>
+          <div id="proof-status-chip" class="proof-status-chip pending hidden">Pending review</div>
+          <div class="today-proof">
+            <div>
+              <span class="metric-label">Today's proof</span>
+              <strong id="proof-summary">No proof submitted yet</strong>
+            </div>
+            <p id="proof-note">Upload your first proof to start the streak.</p>
+          </div>
+          <p id="proof-task" class="supporting-copy strong-copy">No task logged yet.</p>
+          <div class="mini-visual-strip">
+            <article class="comment-item mini-visual-card">
+              <strong>Verification example</strong>
+              <img src="assets/proof-card.svg" alt="Proof upload preview" class="mini-feature-image" />
+            </article>
+            <article class="comment-item mini-visual-card">
+              <strong>Goal progress</strong>
+              <img src="assets/goal-card.svg" alt="Goal progress preview" class="mini-feature-image" />
+            </article>
+          </div>
+          <div class="progress-block">
+            <div class="progress-copy">
+              <span class="metric-label">Completion</span>
+              <strong id="completion-text">0 of 30 logged</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div id="progress-bar" class="progress-fill"></div>
+            </div>
+          </div>
+          <div id="calendar-grid" class="calendar-grid" aria-label="Challenge day checklist"></div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Proof submission standards, account policies, and support links remain available during check-ins.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

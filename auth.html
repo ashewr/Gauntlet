@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet | Account</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero compact-hero">
+        <nav class="topbar">
+          <a href="dashboard.html" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p class="brand-tag">Account access</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <a href="index.html" class="ghost-button">Home</a>
+          </div>
+        </nav>
+
+        <div class="auth-hero">
+          <p class="eyebrow">Welcome back</p>
+          <h1 class="setup-title">Lock in. Log proof. Earn Stax.</h1>
+          <p class="hero-text">Use one email per account. We will send a welcome email the first time you sign in.</p>
+        </div>
+      </header>
+
+      <main class="login-grid auth-layout">
+        <section class="card setup-panel login-panel auth-card-primary">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Account</p>
+              <h2>Log in or sign up</h2>
+            </div>
+            <span class="status-pill alt">Secure access</span>
+          </div>
+          <form id="auth-form" class="challenge-form">
+            <label>
+              Username
+              <input id="auth-username" type="text" placeholder="Enter your username" />
+            </label>
+            <label>
+              Email
+              <input id="auth-email" type="email" placeholder="Enter your email" />
+            </label>
+            <label>
+              Password
+              <input id="auth-password" type="password" placeholder="Enter your password" />
+            </label>
+            <div class="terms-inline-card">
+              <strong>Terms required</strong>
+              <p>First-time visitors must accept the Terms, Privacy Policy, and Refund Policy before using the app.</p>
+            </div>
+            <div class="quick-signup-row">
+              <button id="auth-login-button" type="button" class="solid-button">Log In</button>
+              <button id="auth-signup-button" type="button" class="ghost-button">Sign Up</button>
+            </div>
+            <div class="comment-item length-nudge auth-secondary-actions">
+              <strong>Quick access</strong>
+              <div id="auth-google-button" class="google-button-slot"></div>
+              <button id="forgot-password-button" type="button" class="ghost-button full-width">Forgot password?</button>
+              <p id="forgot-password-status" class="supporting-copy">Enter your email above and we will send a reset link if your account exists.</p>
+            </div>
+            <p id="auth-status" class="supporting-copy">Select Log In if you already have an account, or Sign Up to create one. Any account issues will be shown below.</p>
+          </form>
+        </section>
+        <section class="card setup-panel login-panel auth-visual-panel">
+          <p class="card-label">Ready</p>
+          <h2>Your next move</h2>
+          <p class="hero-text">Create a goal, add Stax, and keep your streak alive with approved proof.</p>
+          <div class="mini-visual-strip">
+            <article class="comment-item mini-visual-card">
+              <strong>Set a goal</strong>
+              <img src="assets/goal-card.svg" alt="Goal setup preview" class="mini-feature-image" />
+            </article>
+            <article class="comment-item mini-visual-card">
+              <strong>Upload proof</strong>
+              <img src="assets/proof-card.svg" alt="Proof preview" class="mini-feature-image" />
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Account access, policy pages, and support information are available before sign-in.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

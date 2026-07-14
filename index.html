@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Gauntlet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <a href="dashboard.html" id="home-brand-link" class="brand-lockup brand-link">
+            <img src="assets/gauntlet-logo.png" alt="The Gauntlet logo" class="brand-logo-image" />
+            <div>
+              <p class="brand-name">The Gauntlet</p>
+              <p id="home-brand-tag" class="brand-tag">Goal accountability with real commitment.</p>
+            </div>
+          </a>
+          <div class="topbar-actions">
+            <a href="auth.html" id="homepage-login-button" class="solid-button top-login-button guest-only">Log In</a>
+            <button type="button" class="ghost-button logout-button auth-only hidden">Log Out</button>
+            <a href="dashboard.html" class="solid-button auth-only hidden">Open Dashboard</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <section class="hero-copy">
+            <p class="eyebrow">Goal accountability platform</p>
+            <h1>Commit to your goals. Verify progress. Earn rewards.</h1>
+            <p class="hero-text">
+              Commit funds to a goal, submit verification each day, and earn additional Stax when you complete your program.
+            </p>
+            <p id="welcome-copy" class="hero-text">Create a goal, fund it, and maintain consistent progress with daily proof.</p>
+            <div class="hero-actions">
+              <a href="setup.html" class="solid-button auth-only hidden">Create goal</a>
+              <a href="auth.html" class="solid-button guest-only">Create account</a>
+              <a href="#how-to-start" class="ghost-button">How it works</a>
+            </div>
+            <ul class="hero-stats" aria-label="Product highlights">
+              <li>
+                <strong>Up to 8%</strong>
+                <span>Reward boost</span>
+              </li>
+              <li>
+                <strong>1 day - 1 year</strong>
+                <span>Goal length</span>
+              </li>
+              <li>
+                <strong>Shop rewards</strong>
+                <span>Robux, gift cards</span>
+              </li>
+            </ul>
+          </section>
+
+          <aside class="hero-card card hero-card-visual">
+            <div class="hero-card-header">
+              <p class="card-label">Featured goal</p>
+              <span class="status-pill live">Active</span>
+            </div>
+            <h2>Healthy nutrition plan</h2>
+            <p class="hero-card-copy">Maintain daily consistency, complete the full term, and unlock a performance-based reward.</p>
+            <img src="assets/goal-card.svg" alt="Gauntlet goal preview" class="feature-image hero-feature-image" />
+            <div class="hero-card-metrics">
+              <div>
+                <span class="metric-label">Locked Stax</span>
+                <strong>500 Stax</strong>
+              </div>
+              <div>
+                <span class="metric-label">Reward Stax</span>
+                <strong>40 Stax</strong>
+              </div>
+              <div>
+                <span class="metric-label">Goal type</span>
+                <strong>Wellness</strong>
+              </div>
+              <div>
+                <span class="metric-label">Completion</span>
+                <strong>18 / 30</strong>
+              </div>
+            </div>
+            <div class="streak-avatars" aria-hidden="true">
+              <span>AL</span>
+              <span>MK</span>
+              <span>JR</span>
+              <span>+9</span>
+            </div>
+          </aside>
+        </div>
+      </header>
+
+      <main>
+        <section class="card top-progress-card auth-only hidden">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Current focus</p>
+              <h2 id="home-progress-title">No active challenge yet</h2>
+            </div>
+            <span id="home-progress-status" class="status-pill alt">Waiting</span>
+          </div>
+          <div class="top-progress-grid">
+            <div class="top-progress-summary">
+              <div class="challenge-summary">
+                <div>
+                  <span class="metric-label">Current streak</span>
+                  <strong id="home-progress-streak">0 days</strong>
+                </div>
+                <div>
+                  <span class="metric-label">Completion</span>
+                  <strong id="home-progress-count">0 of 0 logged</strong>
+                </div>
+                <div>
+                  <span class="metric-label">Next step</span>
+                  <strong id="home-progress-next-step">Create a goal to get started.</strong>
+                </div>
+              </div>
+              <div class="progress-block">
+                <div class="progress-track" aria-hidden="true">
+                  <div id="home-progress-bar" class="progress-fill"></div>
+                </div>
+              </div>
+            </div>
+            <div class="quick-proof-card">
+              <p class="card-label">Verification</p>
+              <h3>Need to submit proof quickly?</h3>
+              <p class="supporting-copy">
+                Open the verification page to upload a screenshot, confirm progress, and get back to your day.
+              </p>
+              <a href="proof.html" class="solid-button full-width">Upload proof</a>
+              <p class="supporting-copy" id="home-proof-tip">
+                Running goals can use Strava screenshots. Other goals can use a photo or supporting screenshot.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="how-to-start" class="quick-start-grid onboarding-only">
+          <article class="card quick-link-card">
+            <p class="card-label">Getting started</p>
+            <h2>New here? Start with these three steps.</h2>
+            <div class="start-steps">
+              <a href="auth.html" class="start-step">
+                <strong>1. Create or access your account</strong>
+                <p>Set up secure access to your profile and saved goals.</p>
+              </a>
+              <a href="setup.html" class="start-step">
+                <strong>2. Configure your goal</strong>
+                <p>Select a goal duration and commit your Stax balance.</p>
+              </a>
+              <a href="proof.html" class="start-step">
+                <strong>3. Submit daily proof</strong>
+                <p>Upload verification each day to maintain progress.</p>
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <section class="social-proof image-proof-grid onboarding-only">
+          <article class="proof-card card visual-card">
+            <p class="card-label">Choose a goal</p>
+            <img src="assets/goal-card.svg" alt="Goal setup preview" class="feature-image" />
+          </article>
+          <article class="proof-card card visual-card">
+            <p class="card-label">Upload proof</p>
+            <img src="assets/proof-card.svg" alt="Proof upload preview" class="feature-image" />
+          </article>
+        </section>
+
+        <section class="reward-preview-grid onboarding-only">
+          <article class="card reward-preview-card">
+            <p class="card-label">Reward catalog</p>
+            <h2>Rewards designed to reinforce consistency</h2>
+            <div class="reward-preview-strip">
+              <div class="reward-pill">Robux</div>
+              <div class="reward-pill">Nintendo</div>
+              <div class="reward-pill">Spotify</div>
+              <div class="reward-pill">DoorDash</div>
+            </div>
+          </article>
+        </section>
+
+        <section id="dashboard" class="dashboard-grid auth-only hidden">
+          <article class="dashboard-panel card">
+            <div class="panel-heading">
+              <div>
+                <p class="card-label">Dashboard</p>
+                <h2>Your active goal</h2>
+              </div>
+              <span class="status-pill">On pace</span>
+            </div>
+            <div class="challenge-summary">
+              <div>
+                <span class="metric-label">Challenge</span>
+                <strong id="dashboard-goal">Eat healthy every day</strong>
+              </div>
+              <div>
+                <span class="metric-label">Category</span>
+                <strong id="dashboard-category">Wellness</strong>
+              </div>
+              <div>
+                <span class="metric-label">Deadline</span>
+                <strong id="dashboard-deadline">Not set</strong>
+              </div>
+              <div>
+                <span class="metric-label">Current streak</span>
+                <strong id="dashboard-streak">0 days</strong>
+              </div>
+              <div>
+                <span class="metric-label">Projected reward</span>
+                <strong id="dashboard-projected-reward">0 Stax</strong>
+              </div>
+            </div>
+            <div class="progress-block">
+              <div class="progress-copy">
+                <span class="metric-label">Completion</span>
+                <strong id="completion-text">0 of 30 logged</strong>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div id="progress-bar" class="progress-fill"></div>
+              </div>
+            </div>
+          </article>
+
+        </section>
+
+        <section class="dashboard-grid auth-only hidden gauntlet-only hidden">
+          <article class="dashboard-panel card">
+            <div class="panel-heading">
+              <div>
+                <p class="card-label">Latest proof</p>
+                <h2 id="gauntlet-proof-title">No proof uploaded yet</h2>
+              </div>
+              <span class="status-pill">Receipts</span>
+            </div>
+            <div id="gauntlet-proof-media" class="media-placeholder">
+              <span>Proof preview</span>
+              <strong>Upload a screenshot or photo from the main app</strong>
+            </div>
+            <img id="gauntlet-proof-image" class="upload-preview-image hidden" alt="Latest proof" />
+            <div class="comment-list">
+              <div class="comment-item">
+                <strong>Task</strong>
+                <p id="gauntlet-proof-task">Nothing logged yet.</p>
+              </div>
+              <div class="comment-item">
+                <strong>Details</strong>
+                <p id="gauntlet-proof-note">Your uploaded notes and proof details will appear here.</p>
+              </div>
+            </div>
+            <a href="proof.html" class="solid-button full-width">Log more proof</a>
+          </article>
+
+          <article class="dashboard-panel card">
+            <div class="panel-heading">
+              <div>
+                <p class="card-label">Tracking status</p>
+                <h2>Challenge status</h2>
+              </div>
+              <span id="gauntlet-page-status" class="status-pill alt">Waiting</span>
+            </div>
+            <div class="challenge-summary">
+              <div>
+                <span class="metric-label">Category</span>
+                <strong id="gauntlet-page-category">None yet</strong>
+              </div>
+              <div>
+                <span class="metric-label">Locked Stax</span>
+                <strong id="gauntlet-page-stake">0 Stax</strong>
+              </div>
+              <div>
+                <span class="metric-label">Check-ins</span>
+                <strong id="gauntlet-page-checkins">0</strong>
+              </div>
+              <div>
+                <span class="metric-label">Current streak</span>
+                <strong id="gauntlet-page-streak">0 days</strong>
+              </div>
+              <div>
+                <span class="metric-label">Wallet balance</span>
+                <strong id="gauntlet-page-wallet">0 Stax</strong>
+              </div>
+            </div>
+            <div class="comment-item">
+              <strong>Tracking status</strong>
+              <p id="gauntlet-launch-note">Launch a gauntlet from the main page to start tracking progress here.</p>
+            </div>
+            <div class="progress-block">
+              <div class="progress-copy">
+                <span class="metric-label">Completion</span>
+                <strong id="gauntlet-page-progress-text">0 of 30 logged</strong>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div id="gauntlet-page-progress-bar" class="progress-fill"></div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section id="challenge-builder" class="builder-grid single-column-builder auth-only hidden onboarding-only">
+          <article class="card">
+            <div class="panel-heading">
+              <div>
+                <p class="card-label">Create a gauntlet</p>
+                <h2>Spin up a challenge in under a minute</h2>
+              </div>
+            </div>
+            <form class="challenge-form">
+              <label>
+                Goal title
+                <input id="goal-title-input" type="text" value="Eat healthy every day" />
+              </label>
+              <label>
+                Goal category
+                <select id="goal-category-input">
+                  <option selected>Fitness</option>
+                  <option>Money</option>
+                  <option>Study</option>
+                  <option>Creator</option>
+                  <option>Wellness</option>
+                </select>
+              </label>
+              <label>
+                Goal length
+                <select id="goal-length-input">
+                  <option value="1">1 day</option>
+                  <option value="7">1 week</option>
+                  <option value="14">2 weeks</option>
+                  <option value="30">1 month</option>
+                  <option value="60">2 months</option>
+                  <option value="90">3 months</option>
+                  <option value="180" selected>6 months (Recommended)</option>
+                  <option value="365">1 year</option>
+                </select>
+              </label>
+              <div class="comment-item length-nudge">
+                <strong>Longer gauntlets win more often</strong>
+                <p id="goal-length-hint">6 months is recommended because longer runs build stronger habits and make the reward feel bigger.</p>
+              </div>
+              <label>
+                Proof schedule
+                <select id="proof-schedule-input">
+                  <option value="daily" selected>Every day</option>
+                  <option value="every-other-day">Every other day</option>
+                </select>
+              </label>
+              <div class="comment-item length-nudge">
+                <strong>Check-in rhythm</strong>
+                <p id="proof-schedule-hint">Every day means proof is required once per calendar day.</p>
+              </div>
+              <label>
+                Stax lock
+                <input id="stake-input" type="text" value="500 Stax" />
+              </label>
+              <div class="comment-item length-nudge">
+                <strong>Projected reward</strong>
+                <p id="goal-reward-hint">A 6 month gauntlet with 500 Stax returns about 540 Stax if you finish. Bigger Stax locks earn bigger total rewards at 8%.</p>
+              </div>
+              <label>
+                Reward model
+                <input type="text" value="Complete the gauntlet and earn Stax" readonly />
+              </label>
+              <label>
+                Proof required
+                <select id="proof-required-input">
+                  <option>Strava only</option>
+                </select>
+              </label>
+              <div class="comment-item length-nudge">
+                <strong>Proof rule</strong>
+                <p id="proof-required-hint">Running goals require Strava proof. Other goals require a screenshot, timer, or other proof image.</p>
+              </div>
+              <button id="launch-gauntlet-button" type="button" class="solid-button full-width">Start goal</button>
+              <p id="launch-gauntlet-status" class="supporting-copy">Choose a goal and start it to lock your Stax commitment.</p>
+            </form>
+          </article>
+        </section>
+
+        <section class="community-grid auth-only hidden gauntlet-only hidden">
+          <article class="card community-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="card-label">Wallet</p>
+                <h2>Reward wallet</h2>
+              </div>
+              <span class="status-pill alt">Stax balance</span>
+            </div>
+            <form id="payment-form" class="challenge-form">
+              <label>
+                Reward username
+                <input id="card-name" type="text" value="@asher" />
+              </label>
+              <label>
+                Reward wallet
+                <input id="card-number" type="text" value="Gauntlet Stax Wallet" />
+              </label>
+              <div class="split-fields">
+                <label>
+                  Current Stax
+                  <input id="wallet-current-stax" type="text" value="0 Stax" readonly />
+                </label>
+                <label>
+                  Available today
+                  <input id="wallet-available-stax" type="text" value="0 Stax" readonly />
+                </label>
+              </div>
+              <label>
+                Favorite reward type
+                <input id="billing-zip" type="text" value="Gear and gift cards" />
+              </label>
+              <button type="submit" class="solid-button full-width">Save reward wallet</button>
+              <p id="payment-status" class="supporting-copy">Your 500 Stax challenge lock is ready once you launch a challenge.</p>
+            </form>
+            <a href="bank.html" class="ghost-button full-width">Open bank and bonus page</a>
+          </article>
+
+        </section>
+
+        <section class="quick-links-grid auth-only hidden onboarding-only">
+          <article class="card quick-link-card">
+            <p class="card-label">Cleaner flow</p>
+            <h2>Need an easier setup page?</h2>
+            <p class="hero-text">Use the guided setup screen for login, goal details, and reward wallet info in one place.</p>
+            <a href="setup.html" class="solid-button">Open setup page</a>
+          </article>
+          <article class="card quick-link-card">
+            <p class="card-label">Daily check-ins</p>
+            <h2>Log screenshots and proof on its own page</h2>
+            <p class="hero-text">Keep the homepage clean and handle uploads, notes, and proof posts in one dedicated place.</p>
+            <a href="proof.html" class="solid-button">Open verification page</a>
+          </article>
+        </section>
+
+        <section class="advanced-links card auth-only hidden onboarding-only">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">Advanced pages</p>
+              <h2>More pages live here</h2>
+            </div>
+            <span class="status-pill alt">Secondary</span>
+          </div>
+          <div class="quick-primary-links">
+            <a href="bank.html" class="ghost-button">Bank</a>
+            <a href="shop.html" class="ghost-button">Shop</a>
+          </div>
+        </section>
+
+        <section class="social-comments-grid auth-only hidden gauntlet-only hidden">
+          <article class="card social-post">
+            <div class="panel-heading">
+              <div>
+              <p class="card-label">Progress post</p>
+                <h2>Nia's day 11 update</h2>
+              </div>
+              <span class="status-pill live">3 comments</span>
+            </div>
+            <div class="media-placeholder">
+              <span>Proof image</span>
+              <strong>Sunrise track photo uploaded</strong>
+            </div>
+            <p class="hero-text">
+              "Clocked in 5:52 AM and got the mile done before work. No excuses."
+            </p>
+            <div id="comment-list" class="comment-list">
+              <div class="comment-item">
+                <strong>You</strong>
+                <p>This is tough. Keep going.</p>
+              </div>
+              <div class="comment-item">
+                <strong>Jules</strong>
+                <p>Sunrise crew is undefeated.</p>
+              </div>
+            </div>
+            <form id="comment-form" class="comment-form">
+              <label>
+                Comment on progress
+                <input id="comment-input" type="text" placeholder="Say something supportive or competitive" />
+              </label>
+              <button type="submit" class="ghost-button">Post comment</button>
+            </form>
+          </article>
+        </section>
+
+        <section class="calendar-section card auth-only hidden gauntlet-only hidden">
+          <div class="panel-heading">
+            <div>
+              <p class="card-label">30 day chain</p>
+              <h2>Your streak board</h2>
+            </div>
+            <span id="streak-pill" class="status-pill">18 complete</span>
+          </div>
+          <div id="calendar-grid" class="calendar-grid" aria-label="Challenge day checklist"></div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div class="site-footer-inner">
+          <div class="site-footer-copy">
+            <p class="card-label">The Gauntlet</p>
+            <p class="supporting-copy">Goal accountability, clear policies, and direct support access.</p>
+          </div>
+          <nav class="site-footer-links" aria-label="Site footer">
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="refund.html">Refund Policy</a>
+            <a href="support.html">Support</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
