@@ -1,0 +1,214 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  CUSTOMER
+  ADMIN
+}
+
+enum AuthProvider {
+  GOOGLE
+}
+
+enum GoalStatus {
+  DRAFT
+  ACTIVE
+  PENDING_REVIEW
+  COMPLETED
+  FAILED
+  ARCHIVED
+}
+
+enum LedgerEntryType {
+  DEPOSIT
+  DEPOSIT_REFUND
+  GOAL_STAKE_LOCK
+  GOAL_STAKE_RETURN
+  GOAL_STAKE_FORFEIT
+  GOAL_REWARD
+  SHOP_PURCHASE
+  SHOP_REFUND
+  MANUAL_ADJUSTMENT
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  CANCELED
+  FULFILLED
+  REFUNDED
+}
+
+enum ProofStatus {
+  SUBMITTED
+  APPROVED
+  DECLINED
+}
+
+model User {
+  id              String        @id @default(cuid())
+  email           String        @unique
+  username        String        @unique
+  displayName     String
+  passwordHash    String?
+  role            UserRole      @default(CUSTOMER)
+  emailVerifiedAt DateTime?
+  welcomeEmailSentAt DateTime?
+  termsAcceptedAt DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  sessions        Session[]
+  wallet          Wallet?
+  goals           Goal[]
+  proofs          ProofSubmission[]
+  orders          ShopOrder[]
+  deposits        Deposit[]
+  authProviders   AuthProviderAccount[]
+  passwordResets  PasswordResetToken[]
+}
+
+model AuthProviderAccount {
+  id                String       @id @default(cuid())
+  userId            String
+  provider          AuthProvider
+  providerAccountId String
+  createdAt         DateTime     @default(now())
+
+  user              User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id         String   @id @default(cuid())
+  userId     String
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  usedAt     DateTime?
+  createdAt  DateTime @default(now())
+
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Session {
+  id             String   @id @default(cuid())
+  userId         String
+  tokenHash      String   @unique
+  expiresAt      DateTime
+  createdAt      DateTime @default(now())
+  lastSeenAt     DateTime @default(now())
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Wallet {
+  id             String        @id @default(cuid())
+  userId         String        @unique
+  staxBalance    Int           @default(0)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  user           User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ledgerEntries  WalletLedger[]
+}
+
+model WalletLedger {
+  id               String          @id @default(cuid())
+  walletId         String
+  type             LedgerEntryType
+  amount           Int
+  balanceAfter     Int
+  description      String
+  goalId           String?
+  orderId          String?
+  stripePaymentId  String?
+  createdAt        DateTime        @default(now())
+
+  wallet           Wallet          @relation(fields: [walletId], references: [id], onDelete: Cascade)
+  goal             Goal?           @relation(fields: [goalId], references: [id], onDelete: SetNull)
+  order            ShopOrder?      @relation(fields: [orderId], references: [id], onDelete: SetNull)
+}
+
+model Goal {
+  id                   String            @id @default(cuid())
+  userId               String
+  title                String
+  category             String
+  totalDays            Int
+  proofSchedule        String            @default("daily")
+  stakeStax            Int
+  projectedRewardStax  Int
+  status               GoalStatus        @default(DRAFT)
+  completedDays        Int               @default(0)
+  currentDay           Int               @default(1)
+  deadlineAt           DateTime?
+  lastProofAt          DateTime?
+  reviewedFailureAt    DateTime?
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+
+  user                 User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  proofs               ProofSubmission[]
+  ledgerEntries        WalletLedger[]
+}
+
+model ProofSubmission {
+  id            String       @id @default(cuid())
+  userId        String
+  goalId        String
+  dayNumber     Int
+  note          String?
+  assetUrl      String
+  status        ProofStatus  @default(SUBMITTED)
+  reviewedAt    DateTime?
+  reviewerId    String?
+  createdAt     DateTime     @default(now())
+
+  user          User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  goal          Goal         @relation(fields: [goalId], references: [id], onDelete: Cascade)
+}
+
+model Deposit {
+  id                    String      @id @default(cuid())
+  userId                String
+  stripeCheckoutId      String      @unique
+  stripePaymentIntentId String?     @unique
+  amountUsdCents        Int
+  staxGranted           Int
+  createdAt             DateTime    @default(now())
+
+  user                  User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model ShopOrder {
+  id                    String      @id @default(cuid())
+  userId                String
+  itemName              String
+  quantity              Int         @default(1)
+  staxCost              Int
+  status                OrderStatus @default(PENDING)
+  shippingName          String
+  shippingAddressLine1  String
+  shippingAddressLine2  String?
+  shippingCity          String
+  shippingState         String
+  shippingPostalCode    String
+  shippingCountry       String
+  stripeCheckoutId      String?     @unique
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime    @updatedAt
+
+  user                  User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  ledgerEntries         WalletLedger[]
+}
